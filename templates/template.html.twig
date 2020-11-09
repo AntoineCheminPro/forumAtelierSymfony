@@ -20,11 +20,13 @@
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
       <a href="{{path('app_logout')}}" class="btn btn-dark">Déconnexion</a>
     {% else %}
-          <a href="{{path('app_login')}}" class="btn btn-dark">Connexion</a>
+          <a href="{{path('app_login')}}" class="btn btn-dark m-1">Connexion</a>
+          <a href="{{path('app_register')}}" class="btn btn-dark m-1">S'inscrire</a>
     {% endif %}
-
   </ul>
-
+    {% if app.user %}
+      <p class="alert-success m-2 p-2 text-center">Bonjour {{app.user.username}}</p>
+    {% endif %}
   <main class="container my-5">
     {% block main %}{% endblock %}
   </main>
