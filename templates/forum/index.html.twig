@@ -4,6 +4,13 @@
 
 {% block main %}
   <h2>Les sujets ouverts</h2>
+  {% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="alert alert-{{ label }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
   {% for subject in subjects %}
     <div class="card my-3">
       <div class="card-header">
@@ -12,7 +19,7 @@
       <div class="card-body">
         <h5 class="card-title">{{subject.title}}</h5>
         <p class="card-text">{{subject.content}}</p>
-        <a href="#" class="btn btn-secondary">Voir</a>
+        <a href="{{path('subject', {id:subject.id})}}" class="btn btn-secondary">Voir</a>
       </div>
     </div>
   {% endfor %}
