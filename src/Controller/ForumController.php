@@ -10,7 +10,11 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 use App\Entity\Subject;
 use App\Form\SubjectType;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
+/**
+ * @IsGranted("IS_AUTHENTICATED_FULLY")
+ */
 class ForumController extends AbstractController
 {
     /**

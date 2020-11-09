@@ -7,7 +7,7 @@
       <p class="lead">Parlez de tout et n'importe quoi</p>
     </section>
   </header>
-  <ul class="nav mt-0 bg-danger">
+  <ul class="nav mt-0 bg-danger py-1">
     <li class="nav-item">
       <a class="nav-link text-white" href="{{ path("index") }}">Accueil</a>
     </li>
@@ -17,6 +17,12 @@
     <li class="nav-item">
       <a class="nav-link text-white" href="{{ path("new_subject") }}">Nouveau sujet</a>
     </li>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+      <a href="{{path('app_logout')}}" class="btn btn-dark">Déconnexion</a>
+    {% else %}
+          <a href="{{path('app_login')}}" class="btn btn-dark">Connexion</a>
+    {% endif %}
+
   </ul>
 
   <main class="container my-5">
